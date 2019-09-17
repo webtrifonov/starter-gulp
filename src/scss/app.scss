@@ -1,0 +1,10 @@
+@import 'vars';
+@import 'mixins';
+@import 'fonts';
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss';
+
+@import 'header';
+@import 'main';
+@import 'footer';
+
+@import 'media';
