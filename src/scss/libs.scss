@@ -1,19 +1,6 @@
 @import 'vars';
 @import 'mixins';
-@import 'fonts';
 @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss';
 
 @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss';
 @import 'node_modules/bootstrap/scss/bootstrap-grid.scss';
-
-@import 'src/libs/slick-slider/slick';
-$slick-font-path: '../libs/slick-slider/fonts/';
-@import 'src/libs/slick-slider/slick-theme.scss';
-.slick-prev {
-  left: 6px;
-  z-index: 1;
-}
-.slick-next {
-  right: 6px;
-  z-index: 1;
-}

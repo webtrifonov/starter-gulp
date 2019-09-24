@@ -1,12 +1,3 @@
-body {
-  text-align: center;
-  display: flex;
-  .slider {
-    @include border(#ccc, 1px, inset);
-    max-width: 600px;
-    margin: 0 auto;
-    p {
-      background-color: #9999ff;
-    }
-  }
+.main-section {
+  
 }

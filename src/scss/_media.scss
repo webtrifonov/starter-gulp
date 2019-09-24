@@ -1,39 +1,38 @@
 /*==========  Desktop First  ==========*/
 
-// ≥1200px
+//max-width 1200px
 @include media-breakpoint-down(lg) {
-
+  body { font-size: 15px; }
 }
-// ≥992px
+//max-width 992px
 @include media-breakpoint-down(md) {
-  body {
-    background-color: #000888;
-  }
+  body { font-size: 14px; }
+
 }
-// ≥768px
+//max-width 768px
 @include media-breakpoint-down(sm) {
-
+  body { font-size: 13px; }
 }
-// ≥576px
+//max-width 576px
 @include media-breakpoint-down(xs) {
-
+  body { font-size: 12px; }
 }
 
 /*==========  Mobile First  ==========*/
 
-// ≤576px
+// min-width 576px
 @include media-breakpoint-up(sm) {
 
 }
-// ≤768px
+// min-width 768px
 @include media-breakpoint-up(md) {
 
 }
-// ≤992px
+// min-width 992px
 @include media-breakpoint-up(lg) {
 
 }
-// ≤1200px
+// min-width 1200px
 @include media-breakpoint-up(xl) {
-
+  
 }

@@ -1,8 +1,86 @@
 //font
+@mixin font-face($family, $path: '../fonts/', $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $family;
+    src: url('#{$path}.eot');
+    src: url('#{$path}.eot?#iefix') format('embedded-opentype'),
+         url('#{$path}.woff2') format('woff2'),
+         url('#{$path}.woff') format('woff'),
+         url('#{$path}.ttf') format('truetype'),
+         url('#{$path}.svg#FiraSans-Medium') format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+@mixin font($family, $size, $weight: normal, $style: normal) {
+  font-family: $family;
+  font-size: '#{$size}px';
+  font-weight: $weight;
+  font-style: $style;
+}
+@function em($px, $root: 16px) {
+  @return ('#{$px}px' / $root) * 1em;
+}
+@mixin fontem($family, $size, $weight: normal, $style: normal) {
+  font-family: $family;
+  font-size: em($size);
+  font-weight: $weight;
+  font-style: $style;
+}
+
 @mixin border($color, $size: 1px, $style: solid) {
   border: {
     width: $size;
     style: $style;
     color: $color;
   }
+}
+@mixin button-template {
+.button {
+  display: inline-block;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: $accent;
+  padding: 15px 45px;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 3px;
+  border-radius: 2px;
+  text-align: center;
+  transition: background-color .1s ease;
+  cursor: pointer;
+  position: relative;
+  &:after {
+    transition: background-color .2s ease;
+    position: absolute;
+    content: '';
+    height: 4px;
+    bottom: 0;
+    width: 100%;
+    background-color: darken($accent, 50%);
+    opacity: .18;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    left: 0;
+  }
+  &:focus, &:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+  &:hover {
+    background-color: lighten($accent, 5%);
+    &:after {
+      opacity: .22;
+    }
+  }
+  &:active {
+    background-color: darken($accent, 5%);
+    &:after {
+      opacity: .32;
+    }
+  }
+}
 }

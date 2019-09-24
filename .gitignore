@@ -1,3 +1,6 @@
 /.idea
 /node_modules
 /dist
+/src/css/app.css
+/src/css/libs.min.css
+/src/css/libs.min.js

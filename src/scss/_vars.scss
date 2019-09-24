@@ -3,8 +3,23 @@ $grid-columns: 12;
 $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
 $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px);
 
-//my variables
-$main-color: #FFF799;
-$title-color: #000000;
-$text-color: #333333;
+//colors
+$accent: #AA55ff;
+$casual: #FFF799;
+
+//text
+$head: #111;
+$title: #222;
+$text: #333;
+$light: #FFF;
+
+$big: 24px;
+$medium: 16px;
+$small: 12px;
+
+//forms
+$fail: red;
+$warn: yellow;
+$success: green;
+
 $bg-color: #333366;

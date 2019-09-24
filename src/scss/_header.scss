@@ -1,5 +1,27 @@
-.main-header {
-  h1 {
-    color: rgba(#ffc105, 0.7);
+* {
+  box-sizing: border-box;
+  &:before, &:after {
+    box-sizing: border-box;
   }
+}
+body {
+  @include fontem(Roboto, 16);
+  min-width: 320px;
+  position: relative;
+  line-height: 1.75;
+  overflow-x: hidden;
+  opacity: 1;
+  color: $text;
+  margin: 0;
+}
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.4;
+}
+.s-header {
+  
 }

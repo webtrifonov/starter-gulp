@@ -1,6 +1,5 @@
 const jsLibsSources = [
     'node_modules/jquery/dist/jquery.min.js',
-    'src/libs/slick-slider/slick.js'
 ];
 const gulp             = require('gulp'),
       autoprefixer     = require('gulp-autoprefixer'),
