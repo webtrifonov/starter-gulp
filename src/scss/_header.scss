@@ -14,6 +14,14 @@ body {
   color: $text;
   margin: 0;
 }
+input, button, textarea, a {
+  border: none;
+  outline: none;
+  background: none;
+  &:hover, &:active {
+    outline: none;
+  }
+}
 ul, ol {
   list-style-type: none;
   margin: 0;
@@ -21,6 +29,26 @@ ul, ol {
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
+}
+h1 { color: $head; }
+h2 { color: $title; }
+h3 { color: $title; }
+p, a, span, h4, h5, h6 { color: $text; }
+.head {
+  color: $head;
+  @include fontem(Roboto, $big)
+}
+.title {
+  color: $title; 
+  @include fontem(Roboto, $medium)
+}
+.subtitle {
+  color: $text; 
+  @include fontem(Roboto, $medium)
+}
+.text {
+  color: $text; 
+  @include fontem(Roboto, $medium)
 }
 .s-header {
   
