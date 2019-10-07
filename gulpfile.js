@@ -130,7 +130,7 @@ function buildHtml() {
         .pipe(gulp.dest('dist'));
 }
 gulp.task('clear', () => cache.clearAll());
-gulp.task('default', gulp.series([gulp.parallel([jsScripts, jsLibs]), watch]));
+gulp.task('default', gulp.series([gulp.parallel([styles, cssLibs, jsScripts, jsLibs]), watch]));
 gulp.task('build', gulp.series([cleanDist, gulp.series(
     [buildCss, buildCssLibs, buildFonts, buildImages, buildJs, buildJsLibs, buildLibs, buildHtml])
 ]));
