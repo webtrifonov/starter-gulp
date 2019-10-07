@@ -1,14 +1,23 @@
+/* === base === */
 * {
   box-sizing: border-box;
   &:before, &:after {
     box-sizing: border-box;
   }
 }
-body {
-  @include fontem(Roboto, 16);
+::placeholder {
+  color: #666;
+}
+::selection {
+  background-color: $casual;
+  color: #fff;
+}
+html, body {
+  @include fontrem(Roboto, 16);
   min-width: 320px;
   position: relative;
   line-height: 1.75;
+  height: 100%;
   overflow-x: hidden;
   opacity: 1;
   color: $text;
@@ -29,6 +38,7 @@ ul, ol {
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
+  margin: 0;
 }
 h1 { color: $head; }
 h2 { color: $title; }
@@ -36,20 +46,22 @@ h3 { color: $title; }
 p, a, span, h4, h5, h6 { color: $text; }
 .head {
   color: $head;
-  @include fontem(Roboto, $big)
+  @include fontrem(Roboto, $h1)
 }
 .title {
   color: $title; 
-  @include fontem(Roboto, $medium)
+  @include fontrem(Roboto, $h2)
 }
 .subtitle {
   color: $text; 
-  @include fontem(Roboto, $medium)
+  @include fontrem(Roboto, $h3)
 }
 .text {
   color: $text; 
-  @include fontem(Roboto, $medium)
+  @include fontrem(Roboto, $p)
 }
+/* --- end base --- */
+
 .s-header {
   
 }

@@ -1,3 +1,33 @@
 .main-section {
   
 }
+/* === accordion === */
+.accordion {
+  position: relative;  
+}
+.accordion-label {
+  position: relative;
+}
+.accordion-tab .accordion-content {
+  transition: height, max-height 3s;
+  overflow-y: hidden;
+  //max-height: 0;
+}
+.accordion-tab.is-opened .accordion-label {
+
+}
+.accordion-tab.is-opened .accordion-content {
+  //max-height: none;
+}
+.accordion-tab .accordion-content > div{
+    margin: 10px 0;
+}
+.accordion-tab.is-opened .accordion-label svg {
+  transform: rotate(180deg);
+}
+.accordion-label svg {
+  width: 15px;
+  height: 15px;
+  transition: transform .2s linear;;
+}
+/* === end accordion === */

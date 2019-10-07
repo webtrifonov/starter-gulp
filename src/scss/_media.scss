@@ -2,20 +2,20 @@
 
 //max-width 1200px
 @include media-breakpoint-down(lg) {
-  body { font-size: 15px; }
+  html, body { font-size: 15px; }
 }
 //max-width 992px
 @include media-breakpoint-down(md) {
-  body { font-size: 14px; }
+  html, body { font-size: 14px; }
 
 }
 //max-width 768px
 @include media-breakpoint-down(sm) {
-  body { font-size: 13px; }
+  html, body { font-size: 13px; }
 }
 //max-width 576px
 @include media-breakpoint-down(xs) {
-  body { font-size: 12px; }
+  html, body { font-size: 12px; }
 }
 
 /*==========  Mobile First  ==========*/
