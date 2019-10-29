@@ -3,3 +3,4 @@
 /dist
 /src/css/**/*
 /src/js/**/*
+package-lock.json

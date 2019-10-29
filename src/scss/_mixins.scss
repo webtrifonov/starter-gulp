@@ -14,16 +14,16 @@
 }
 @mixin font($family, $size, $weight: normal, $style: normal) {
   font-family: $family;
-  font-size: '#{$size}px';
+  font-size: #{$size}px;
   font-weight: $weight;
   font-style: $style;
 }
-@function rem($px, $root: 16px) {
+@function em($px, $root: 16px) {
   @return ('#{$px}px' / $root) * 1rem;
 }
-@mixin fontrem($family, $size, $weight: normal, $style: normal) {
+@mixin fontem($family, $size, $weight: normal, $style: normal) {
   font-family: $family;
-  font-size: rem($size);
+  font-size: em($size);
   font-weight: $weight;
   font-style: $style;
 }
@@ -83,4 +83,35 @@
     }
   }
 }
+}
+
+//https://habr.com/ru/post/310186/ - резиновые шрифты
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+@function calcFluidFontSize($f-min, $f-max, $w-min, $w-max, $units: px) {
+  $f-min: strip-unit($f-min);
+  $f-max: strip-unit($f-max);
+  $w-min: strip-unit($w-min);
+  $w-max: strip-unit($w-max);
+  $k: ($f-max - $f-min)/($w-max - $w-min);
+  $b: $f-min - $k * $w-min;
+  $b: $b + $units;
+  @return calc( #{$k} * 100vw + #{$b} );
+}
+
+@mixin fluidFontSize($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  font-size: $f-min;
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      font-size: $fallback;
+    }
+    font-size: calcFluidFontSize($f-min, $f-max, $w-min, $w-max, px);
+  }
+  @media (min-width: $w-max) {
+    font-size: $f-max;
+  }
 }

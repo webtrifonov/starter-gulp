@@ -3,6 +3,7 @@ const jsLibsSources = [
     //'node_modules/mmenu-js/dist/mmenu.js', //npm i mmenu-js
     //'node_modules/magnific-popup/dist/jquery.magnific-popup.js', //npm i magnific-popup
     //'', //npm i owl.carousel
+    //'node_modules/slick/slick.min.js' //npm i slick-carousel
 ];
 const jsLibsName = 'libs.min.js';
 

@@ -13,7 +13,7 @@
   color: #fff;
 }
 html, body {
-  @include fontrem(Roboto, 16);
+  @include fluidFontSize(14px, 16px, 480px, 1280px, 16px);
   min-width: 320px;
   position: relative;
   line-height: 1.75;
@@ -23,6 +23,9 @@ html, body {
   color: $text;
   margin: 0;
 }
+section {
+  width: 100%;
+}
 input, button, textarea, a {
   border: none;
   outline: none;
@@ -31,7 +34,7 @@ input, button, textarea, a {
     outline: none;
   }
 }
-ul, ol {
+ul, ol, label {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -60,6 +63,7 @@ p, a, span, h4, h5, h6 { color: $text; }
   color: $text; 
   @include fontrem(Roboto, $p)
 }
+
 /* --- end base --- */
 
 .s-header {
