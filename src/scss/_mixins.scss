@@ -21,7 +21,7 @@
 @function rem($px, $root: 16px) {
   @return ('#{$px}px' / $root) * 1rem;
 }
-@mixin fontem($family, $size, $weight: normal, $style: normal) {
+@mixin fontrem($family, $size, $weight: normal, $style: normal) {
   font-family: $family;
   font-size: rem($size);
   font-weight: $weight;

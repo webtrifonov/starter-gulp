@@ -5,6 +5,7 @@ const jsLibsSources = [
     //'', //npm i owl.carousel
     //'node_modules/slick/slick.min.js' //npm i slick-carousel
 ];
+const destFolder = 'dist';
 const jsLibsName = 'libs.min.js';
 
 const gulp             = require('gulp'),
@@ -77,6 +78,7 @@ function watch() {
         server: {
             baseDir: './src/'
         },
+        // proxy: 'localhost.dev', // for run php on server
         port: 3000,
         notify: false,
         tunnel: false
@@ -86,21 +88,21 @@ function watch() {
     gulp.watch('src/newjs/**/*.js', gulp.series([jsLibs, jsScripts, BSreload]))
     gulp.watch('src/*.html').on('change', browserSync.reload);
 }
-async function cleanDist() {
-    return del.sync('dist');
+function cleanDist() {
+    return del.sync(destFolder);
 }
 function buildCss() {
     return gulp.src('src/css/*.css', '!src/css/libs.min.css')
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest(`${destFolder}/css`));
 }
 function buildCssLibs() {
     return gulp.src('src/css/libs.min.css')
         .pipe(cleanCss({compatibility: 'ie9'}))
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest(`${destFolder}/css`));
 }
 function buildFonts() {
     return gulp.src('src/fonts/**/*.+(ttf|eot|svg|woff|woff2)')
-        .pipe(gulp.dest('dist/fonts'));
+        .pipe(gulp.dest(`${destFolder}/fonts`));
 }
 function buildImages() {
     return gulp.src('src/img/**/*')
@@ -110,25 +112,25 @@ function buildImages() {
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         })))
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest(`${destFolder}/img`));
 }
 function buildJs() {
     return gulp.src(['src/js/*.js', '!src/js/libs.min.js'])
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest(`${destFolder}/js`));
 }
 function buildJsLibs() {
     return gulp.src('src/js/libs.min.js')
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest(`${destFolder}/js`));
 }
 function buildLibs() {
     return gulp.src('src/libs/**/*')
-        .pipe(gulp.dest('dist/libs'));
+        .pipe(gulp.dest(`${destFolder}/libs`));
 }
 function buildHtml() {
-    return gulp.src('src/*.html')
-        .pipe(gulp.dest('dist'));
+    return gulp.src('src/*.+(html|php)')
+        .pipe(gulp.dest(destFolder));
 }
 gulp.task('clear', () => cache.clearAll());
 gulp.task('default', gulp.series([gulp.parallel([styles, cssLibs, jsScripts, jsLibs]), watch]));
